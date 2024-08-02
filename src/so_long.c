@@ -24,7 +24,9 @@ int main(int argc,char **argv)
 		}
 		else
 		{
-		
+			if (so_long.map)
+				free_map(so_long.map);
+			get_alert("\033[0;41mErro! Mapa Invalido !");
 		}
 		
 	}
