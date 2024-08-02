@@ -39,7 +39,7 @@ typedef struct s_game
 	int		endgame;
 }	t_game;
 
-static int checker_file(char *argv);
+int checker_file(char *argv);
 void get_alert(char *str);
 char **read_map(char *path);
 #endif
