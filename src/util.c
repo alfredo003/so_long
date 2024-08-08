@@ -12,38 +12,38 @@
 
 #include "so_long.h"
 
-char **read_map(char *path)
+char	**read_map(char *path)
 {
-    int fd;
-    char *line;
-    char *holder_map;
-    char *holder;
-    char **map;
+	int	fd;
+	char	*line;
+	char	*holder_map;
+	char	*holder;
+	char	**map;
 
-    fd = open(path, O_RDONLY);
-    if (fd == -1)
-        return (NULL);
-    holder_map = ft_strdup("");
-    while (1)
-    {
-        line = get_next_line(fd);
-        if (!line)
-            break;
-        holder = holder_map;
-        holder_map = ft_strjoin(holder, line);
-        free(line);
-        free(holder);
-    }
-    map = ft_split(holder_map, '\n');
-    free(holder_map);
-    close(fd);
-    return (map);
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return (NULL);
+	holder_map = ft_strdup("");
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break;
+		holder = holder_map;
+		holder_map = ft_strjoin(holder, line);
+		free(line);
+		free(holder);
+	}
+	map = ft_split(holder_map, '\n');
+	free(holder_map);
+	close(fd);
+	return (map);
 }
 
-static int checker_file(char *argv)
+int checker_file(char *argv)
 {
 	int i;
-	
+
 	if(!argv)
 		return (0);
 	i = 0;
@@ -64,4 +64,32 @@ void get_alert(char *str)
 	}
 	write(1,"\n",1);
 	exit(1);
+}
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i] != NULL)
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
+int	exit_game(t_game *game)
+{
+	free_map(game->map);
+	mlx_destroy_image(game->mlx, game->img_backg);
+	mlx_destroy_image(game->mlx, game->img_wall);
+	mlx_destroy_image(game->mlx, game->img_player);
+	mlx_destroy_image(game->mlx, game->img_colect);
+	mlx_destroy_image(game->mlx, game->img_exit);
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	exit(0);
+	return (0);
 }

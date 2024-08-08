@@ -15,6 +15,7 @@
 # include "../libs/minilibx/mlx.h"
 # include "../libs/libft/libft.h"
 # include <stdio.h>
+# include <fcntl.h>
 
 typedef struct s_game
 {
@@ -42,4 +43,6 @@ typedef struct s_game
 int checker_file(char *argv);
 void get_alert(char *str);
 char **read_map(char *path);
+int map_checker(t_game *game);
+void	free_map(char **map);
 #endif

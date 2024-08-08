@@ -24,7 +24,8 @@ MINILIBX_PATH = ./libs/minilibx
 MINILIBX = $(MINILIBX_PATH)/libmlx.a
 
 SRC_FILES = so_long.c \
-		util.c
+		util.c \
+		map_verify.c
 
 SRC_DIR = src
 
