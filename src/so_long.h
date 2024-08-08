@@ -40,9 +40,10 @@ typedef struct s_game
 	int		endgame;
 }	t_game;
 
-int checker_file(char *argv);
-void get_alert(char *str);
-char **read_map(char *path);
-int map_checker(t_game *game);
+int	checker_file(char *argv);
+void	get_alert(char *str);
+char	**read_map(char *path);
+int	map_checker(t_game *game);
 void	free_map(char **map);
+void	game_start(t_game *game);
 #endif

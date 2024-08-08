@@ -25,6 +25,7 @@ MINILIBX = $(MINILIBX_PATH)/libmlx.a
 
 SRC_FILES = so_long.c \
 		util.c \
+		game_start.c \
 		map_verify.c
 
 SRC_DIR = src

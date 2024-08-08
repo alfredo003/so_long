@@ -20,7 +20,7 @@ int main(int argc,char **argv)
 		so_long.map = read_map(argv[1]);
 		if(map_checker(&so_long) && checker_file(argv[1]))
 		{
-			printf("O jogo esta a rodar");
+			game_start(&so_long);
 		}
 		else
 		{
