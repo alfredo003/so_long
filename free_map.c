@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudos-sa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 10:36:24 by gudos-sa          #+#    #+#             */
-/*   Updated: 2024/08/22 10:36:29 by gudos-sa         ###   ########.fr       */
+/*   Created: 2024/08/30 14:24:28 by achivela          #+#    #+#             */
+/*   Updated: 2024/08/30 14:24:30 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "so_long.h"
 
-void	ft_free_all2(t_game game, int coverage)
+void	ft_free_all_coverage(t_game game, int coverage)
 {
 	if (coverage >= 0 && coverage <= 3)
 	{
@@ -43,7 +42,7 @@ void	ft_free_all(t_game game, int coverage)
 		mlx_destroy_image(game.mlx, game.exit_img);
 	if (coverage > 2)
 		ft_free_collectibles(game.collectibles);
-	ft_free_all2(game, coverage);
+	ft_free_all_coverage(game, coverage);
 }
 
 void	ft_free_imgs(t_game *game)

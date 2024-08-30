@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudos-sa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/26 14:39:24 by gudos-sa          #+#    #+#             */
-/*   Updated: 2024/07/26 15:37:16 by gudos-sa         ###   ########.fr       */
+/*   Created: 2024/08/30 14:21:02 by achivela          #+#    #+#             */
+/*   Updated: 2024/08/30 16:05:21 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "so_long.h"
+
+int	ft_close_win(void *param)
+{
+	t_game	*game;
+
+	game = (t_game *)param;
+	ft_free_all(*game, 4);
+	exit(0);
+}
+
+void	ft_error(char *s)
+{
+	int	i;
+
+	i = 0;
+	write (2, "Error\n", 6);
+	while (s[i] != '\0')
+	{
+		write(2, &s[i], 1);
+		i++;
+	}
+	exit(1);
+}
 
 int	ft_strlen(char *s)
 {
@@ -22,35 +44,6 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-void	ft_size_map(int *width, int *height, char **map)
-{
-	int	y;
-	int	x;
-
-	y = 0;
-	x = 0;
-	while (map[y] != NULL)
-		y++;
-	while (map[0][x] != '\0')
-		x++;
-	*width = x - 1;
-	*height = y - 1;
-}
-
-void	ft_print_walk(unsigned long nb)
-{
-	char	c;
-
-	if (nb == 0)
-	{
-		write (1, "\n", 1);
-		return ;
-	}
-	ft_print_walk(nb / 10);
-	c = (nb % 10) + '0';
-	write (1, &c, 1);
-}
-
 void	ft_store_collectable(int y, int x, t_game *game)
 {
 	t_node_colectible	*new;
@@ -60,7 +53,7 @@ void	ft_store_collectable(int y, int x, t_game *game)
 	if (!new)
 	{
 		ft_free_all(*game, 3);
-		ft_error("Cannot read map.");
+		ft_error("\033[0;41mNão é possível ler o mapa.");
 	}
 	new->collectible.x = x;
 	new->collectible.y = y;

@@ -3,13 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   util_validate_map3.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudos-sa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 12:27:52 by gudos-sa          #+#    #+#             */
-/*   Updated: 2024/08/22 12:27:59 by gudos-sa         ###   ########.fr       */
+/*   Created: 2024/08/30 16:01:42 by achivela          #+#    #+#             */
+/*   Updated: 2024/08/30 16:01:47 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
+
+void	ft_size_map(int *width, int *height, char **map)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	x = 0;
+	while (map[y] != NULL)
+		y++;
+	while (map[0][x] != '\0')
+		x++;
+	*width = x - 1;
+	*height = y - 1;
+}
+
+void	ft_print_walk(unsigned long nb)
+{
+	char	c;
+
+	if (nb == 0)
+	{
+		write (1, "\n", 1);
+		return ;
+	}
+	ft_print_walk(nb / 10);
+	c = (nb % 10) + '0';
+	write (1, &c, 1);
+}
+
+void	ft_no_empty_line(t_game game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (game.map[y] != NULL)
+	{
+		x = ft_strlen(game.map[y]);
+		if (x == 0)
+		{
+			ft_free_all(game, 1);
+			ft_error("\033[0;41mMapa inválido - o mapa possui uma linha vazia.");
+		}
+		y++;
+	}
+}
 
 void	ft_exit_is_achived(t_game game)
 {

@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   util_get_map2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudos-sa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 16:03:22 by gudos-sa          #+#    #+#             */
-/*   Updated: 2024/08/20 16:03:24 by gudos-sa         ###   ########.fr       */
+/*   Created: 2024/08/30 16:05:56 by achivela          #+#    #+#             */
+/*   Updated: 2024/08/30 16:05:58 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "so_long.h"
 
 void	ft_putin_line1(char **new_, char c)

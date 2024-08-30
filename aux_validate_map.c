@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_aux_validate_map.c                            :+:      :+:    :+:   */
+/*   aux_validate_map.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudos-sa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 08:57:17 by gudos-sa          #+#    #+#             */
-/*   Updated: 2024/08/22 08:57:22 by gudos-sa         ###   ########.fr       */
+/*   Created: 2024/08/30 15:57:31 by achivela          #+#    #+#             */
+/*   Updated: 2024/08/30 15:57:33 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -88,23 +88,5 @@ void	ft_all_is_collectible(t_game game)
 		achived = 0;
 		ft_reverse_state(game);
 		aux = aux->next;
-	}
-}
-
-void	ft_no_empty_line(t_game game)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (game.map[y] != NULL)
-	{
-		x = ft_strlen(game.map[y]);
-		if (x == 0)
-		{
-			ft_free_all(game, 1);
-			ft_error("Invalid map - map have empty line.");
-		}
-		y++;
 	}
 }

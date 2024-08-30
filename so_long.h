@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudos-sa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 09:45:47 by gudos-sa          #+#    #+#             */
-/*   Updated: 2024/07/25 09:45:52 by gudos-sa         ###   ########.fr       */
+/*   Created: 2024/08/30 16:04:18 by achivela          #+#    #+#             */
+/*   Updated: 2024/08/30 16:04:20 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -62,7 +61,7 @@ char	**ft_putin_map(char **map, char *line);
 char	*ft_get_next_line(int fd, int *new_line_end);
 char	**ft_get_map(int fd);
 void	ft_error(char *s);
-void	ft_prepare(t_game *game);
+void	verify(t_game *game);
 void	ft_exit_is_achived(t_game game);
 void	ft_store_collectable(int y, int x, t_game *game);
 void	ft_init_attr(t_game *game);

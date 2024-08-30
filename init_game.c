@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_init_game.c                                   :+:      :+:    :+:   */
+/*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudos-sa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 09:11:52 by gudos-sa          #+#    #+#             */
-/*   Updated: 2024/08/05 09:11:55 by gudos-sa         ###   ########.fr       */
+/*   Created: 2024/08/30 14:46:52 by achivela          #+#    #+#             */
+/*   Updated: 2024/08/30 14:46:54 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "so_long.h"
 
 void	ft_init_attr(t_game *game)
@@ -36,17 +35,17 @@ void	ft_verify_load_img2(t_game *game)
 	if (!game->empty_img)
 	{
 		ft_free_all(*game, 2);
-		ft_error("The empty image was not loaded.");
+		ft_error("A imagem vazia não foi carregada.");
 	}
 	if (!game->collectable_img)
 	{
 		ft_free_all(*game, 2);
-		ft_error("The collectible image was not loaded.");
+		ft_error("A imagem colecionável não foi carregada.");
 	}
 	if (!game->exit_img)
 	{
 		ft_free_all(*game, 2);
-		ft_error("The exit image was not loaded.");
+		ft_error("A imagem de saída não foi carregada.");
 	}
 }
 
@@ -55,12 +54,12 @@ void	ft_verify_load_img1(t_game *game)
 	if (!game->character_img)
 	{
 		ft_free_all(*game, 2);
-		ft_error("The character image was not loaded.");
+		ft_error("A imagem do personagem não foi carregada.");
 	}
 	if (!game->obstacle_img)
 	{
 		ft_free_all(*game, 2);
-		ft_error("The obstacle image was not loaded.");
+		ft_error("A imagem do obstáculo não foi carregada.");
 	}
 }
 
@@ -70,15 +69,15 @@ void	ft_init_imgs(t_game *game)
 	int		h;
 	void	*aux;
 
-	aux = mlx_xpm_file_to_image(game->mlx, "./textures/P.xpm", &w, &h);
+	aux = mlx_xpm_file_to_image(game->mlx, "./assets/P.xpm", &w, &h);
 	game->character_img = aux;
-	aux = mlx_xpm_file_to_image(game->mlx, "./textures/O.xpm", &w, &h);
+	aux = mlx_xpm_file_to_image(game->mlx, "./assets/O.xpm", &w, &h);
 	game->obstacle_img = aux;
-	aux = mlx_xpm_file_to_image(game->mlx, "./textures/ETY.xpm", &w, &h);
+	aux = mlx_xpm_file_to_image(game->mlx, "./assets/ETY.xpm", &w, &h);
 	game->empty_img = aux;
-	aux = mlx_xpm_file_to_image(game->mlx, "./textures/C.xpm", &w, &h);
+	aux = mlx_xpm_file_to_image(game->mlx, "./assets/C.xpm", &w, &h);
 	game->collectable_img = aux;
-	aux = mlx_xpm_file_to_image(game->mlx, "./textures/E.xpm", &w, &h);
+	aux = mlx_xpm_file_to_image(game->mlx, "./assets/E.xpm", &w, &h);
 	game->exit_img = aux;
 	ft_verify_load_img1(game);
 	ft_verify_load_img2(game);

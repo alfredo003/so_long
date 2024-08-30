@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_validate_map.c                                :+:      :+:    :+:   */
+/*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudos-sa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 10:44:39 by gudos-sa          #+#    #+#             */
-/*   Updated: 2024/08/09 10:44:41 by gudos-sa         ###   ########.fr       */
+/*   Created: 2024/08/30 14:08:03 by achivela          #+#    #+#             */
+/*   Updated: 2024/08/30 14:08:06 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -24,7 +24,7 @@ void	ft_surrounded_wall(t_game game)
 		if (game.map[0][i] != '1' || game.map[height_map][i] != '1')
 		{
 			ft_free_all(game, 1);
-			ft_error("Invalid map - not surrounded by 1");
+			ft_error("\033[0;41mMapa inválido - não rodeado por 1");
 		}
 		i++;
 	}
@@ -34,7 +34,7 @@ void	ft_surrounded_wall(t_game game)
 		if (game.map[i][0] != '1' || game.map[i][width_map] != '1')
 		{
 			ft_free_all(game, 1);
-			ft_error("Invalid map - not surrounded by 1");
+			ft_error("\033[0;41mMapa inválido - não rodeado por 1");
 		}
 		i++;
 	}
@@ -60,7 +60,7 @@ void	ft_mandatories_characters(t_game game)
 			if (game.map[y][x] != 'P' && deny_char == 2)
 			{
 				ft_free_all(game, 1);
-				ft_error("Invalid map - invalid character.");
+				ft_error("\033[0;41mMapa inválido - caractere inválido.");
 			}
 			deny_char = 0;
 			x++;
@@ -87,7 +87,7 @@ void	ft_rectangular_map(t_game game)
 		if (width != first_line)
 		{
 			ft_free_all(game, 1);
-			ft_error("Invalid map - map isnt rectangular.");
+			ft_error("\033[0;41mMapa inválido – o mapa não é retangular.");
 		}
 		height++;
 	}
@@ -98,17 +98,17 @@ void	ft_qtd_mandatories_characters( t_game game)
 	if (ft_qtd_character(game.map, 'E') != 1)
 	{
 		ft_free_all(game, 1);
-		ft_error("Invalid map - must contain 1 exit.");
+		ft_error("\033[0;41mMapa inválido - deve conter 1 saída.");
 	}
 	if (ft_qtd_character(game.map, 'C') < 1)
 	{
 		ft_free_all(game, 1);
-		ft_error("Invalid map - at least 1 collectible");
+		ft_error("\033[0;41mMapa inválido – pelo menos 1 colecionável");
 	}
 	if (ft_qtd_character(game.map, 'P') != 1)
 	{
 		ft_free_all(game, 1);
-		ft_error("Invalid map - must contain 1 starting position.");
+		ft_error("\033[0;41mMapa inválido - deve conter 1 posição inicial.");
 	}
 }
 
